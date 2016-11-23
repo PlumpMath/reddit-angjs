@@ -4,10 +4,27 @@
 <script src="node_modules/angular/angular.js"></script>
   <title></title>
 <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css">
+
 </head>
 <body ng-app="appName">
 
-<i class="fa fa-hand-lizard-o" aria-hidden="true"></i>
+
+<div ng-controller="weLostCtrl">
+<form>
+<h2>
+  Add a new post! Make my effort worth it... (Plz dont post BS)
+</h2>  
+  <input type="text" ng-model="newPost" placeholder='Your "post"'>
+  <button ng-click="postText()">Post this shit!</button>
+</form>
+
+<p ng-repeat="y in posts | orderBy:'-likes' track by $index">
+  <i class="fa fa-hand-lizard-o" aria-hidden="true" ng-click="addLike($index)">
+  </i> {{y.likes}} - {{y.name}}
+</p>
+
+
+
 
 <script type="text/javascript" src="script.js"></script>
 </body>
